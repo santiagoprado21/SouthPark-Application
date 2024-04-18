@@ -3,44 +3,49 @@ package service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.southpark.domain.ActivityDetails;
 import com.southpark.domain.PhysicalSpace;
+
+import repository.PhysicalSpaceRepository;
 
 public class PhysicalSpaceServiceImpl implements PhysicalSpaceService{
 
+	
+	@Autowired
+	private PhysicalSpaceRepository physicalSpaceRepository;
+	
+	
 	@Override
 	public List<PhysicalSpace> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<PhysicalSpace> lstActivityDetails = physicalSpaceRepository.findAll();
+		return lstActivityDetails;
 	}
 
 	@Override
-	public Optional<PhysicalSpace> findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<PhysicalSpace> findBy(String id) {
+		return physicalSpaceRepository.findById(id);
 	}
 
 	@Override
 	public PhysicalSpace save(PhysicalSpace entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return physicalSpaceRepository.save(entity);
 	}
 
 	@Override
 	public PhysicalSpace update(PhysicalSpace entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return physicalSpaceRepository.save(entity);
 	}
 
 	@Override
 	public void delete(PhysicalSpace entity) throws Exception {
-		// TODO Auto-generated method stub
-		
+		physicalSpaceRepository.delete(entity);
 	}
 
 	@Override
-	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void deleteById(String id) throws Exception {
+		physicalSpaceRepository.deleteById(id);
 	}
 
 	@Override
@@ -51,8 +56,7 @@ public class PhysicalSpaceServiceImpl implements PhysicalSpaceService{
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		return physicalSpaceRepository.count();
 	}
 
 }

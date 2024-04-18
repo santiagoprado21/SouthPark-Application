@@ -3,44 +3,39 @@ package service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.southpark.domain.ActivityDetails;
 import com.southpark.domain.Availability;
+
+import repository.AvailabilityRepository;
 
 public class AvailabilityServiceImpl implements AvailabilityService{
 
+	
+	@Autowired
+	private AvailabilityRepository availabilityRepository;
+	
 	@Override
 	public List<Availability> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Availability> lstAvailability =  availabilityRepository.findAll();
+		return lstAvailability;
 	}
 
-	@Override
-	public Optional<Availability> findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 
 	@Override
 	public Availability save(Availability entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return availabilityRepository.save(entity);
 	}
 
 	@Override
 	public Availability update(Availability entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return availabilityRepository.save(entity);
 	}
 
 	@Override
 	public void delete(Availability entity) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+		availabilityRepository.delete(entity);
 	}
 
 	@Override
@@ -51,8 +46,17 @@ public class AvailabilityServiceImpl implements AvailabilityService{
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		return availabilityRepository.count();
+	}
+
+	@Override
+	public Optional<Availability> findBy(String id) {
+		return availabilityRepository.findById(id);
+	}
+
+	@Override
+	public void deleteById(String id) throws Exception {
+		availabilityRepository.deleteById(id);
 	}
 
 }

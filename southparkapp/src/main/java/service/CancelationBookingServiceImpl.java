@@ -3,44 +3,47 @@ package service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.southpark.domain.ActivityDetails;
 import com.southpark.domain.CancelationBooking;
+
+import repository.CancelationBookingRepository;
 
 public class CancelationBookingServiceImpl implements CancelationBookingService{
 
+	@Autowired
+	private CancelationBookingRepository cancelationBookingRepository;
+	
 	@Override
 	public List<CancelationBooking> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<CancelationBooking> lstCancelationBooking = cancelationBookingRepository.findAll();
+		return lstCancelationBooking;
 	}
 
 	@Override
-	public Optional<CancelationBooking> findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<CancelationBooking> findBy(String id) {
+		return cancelationBookingRepository.findById(id);
 	}
 
 	@Override
 	public CancelationBooking save(CancelationBooking entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return cancelationBookingRepository.save(entity);
 	}
 
 	@Override
 	public CancelationBooking update(CancelationBooking entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return cancelationBookingRepository.save(entity);
 	}
 
 	@Override
 	public void delete(CancelationBooking entity) throws Exception {
-		// TODO Auto-generated method stub
-		
+		cancelationBookingRepository.delete(entity);;
 	}
 
 	@Override
-	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void deleteById(String id) throws Exception {
+		cancelationBookingRepository.deleteById(id);
 	}
 
 	@Override
@@ -51,8 +54,7 @@ public class CancelationBookingServiceImpl implements CancelationBookingService{
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		return cancelationBookingRepository.count();
 	}
 
 }

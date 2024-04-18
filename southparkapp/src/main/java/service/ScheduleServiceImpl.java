@@ -1,46 +1,51 @@
+
 package service;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.southpark.domain.ActivityDetails;
 import com.southpark.domain.Schedule;
+
+import repository.ActivityDetailsRepository;
+import repository.ScheduleRepository;
 
 public class ScheduleServiceImpl implements ScheduleService{
 
+	@Autowired
+	private ScheduleRepository scheduleRepository;
+	
 	@Override
 	public List<Schedule> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Schedule> lstSchedule = scheduleRepository.findAll();
+		return lstSchedule;
 	}
 
 	@Override
-	public Optional<Schedule> findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<Schedule> findBy(String id) {
+		return scheduleRepository.findById(id);
 	}
 
 	@Override
 	public Schedule save(Schedule entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return scheduleRepository.save(entity);
 	}
 
 	@Override
 	public Schedule update(Schedule entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return scheduleRepository.save(entity);
 	}
 
 	@Override
 	public void delete(Schedule entity) throws Exception {
-		// TODO Auto-generated method stub
-		
+		scheduleRepository.delete(entity);
 	}
 
 	@Override
-	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void deleteById(String id) throws Exception {
+		scheduleRepository.deleteById(id);
 	}
 
 	@Override
@@ -51,8 +56,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		return scheduleRepository.count();
 	}
 
 }

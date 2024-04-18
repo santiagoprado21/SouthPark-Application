@@ -3,56 +3,59 @@ package service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.southpark.domain.Activity;
+
+import repository.ActivityDetailsRepository;
+import repository.ActivityRepository;
 
 public class ActivityServiceImpl implements ActivityService{
 
+	
+	@Autowired
+	private ActivityRepository activityRepository;
+	
+	
 	@Override
 	public List<Activity> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Activity> lstActivity = activityRepository.findAll();
+		return lstActivity;
 	}
 
 	@Override
-	public Optional<Activity> findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<Activity> findBy(String id) {
+		return activityRepository.findById(id);
 	}
 
 	@Override
 	public Activity save(Activity entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return activityRepository.save(entity);
 	}
 
 	@Override
 	public Activity update(Activity entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return activityRepository.save(entity);
 	}
 
 	@Override
 	public void delete(Activity entity) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+		activityRepository.delete(entity);
 	}
 
 	@Override
 	public void validate(Activity entity) throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		return activityRepository.count();
+	}
+
+	@Override
+	public void deleteById(String id) throws Exception {
+		activityRepository.deleteById(id);
 	}
 
 }
