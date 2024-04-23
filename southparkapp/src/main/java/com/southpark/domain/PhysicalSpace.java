@@ -29,7 +29,18 @@ public class PhysicalSpace implements Serializable{
 	@Column(name = "location")
     private String location;
 	
+	@Column(name = "capacity")
+    private String capacity;
+
 	
+
+	public String getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(String capacity) {
+		this.capacity = capacity;
+	}
 
 	public String getIdPhysicalSpace() {
 		return idPhysicalSpace;

@@ -17,25 +17,25 @@ public class Client implements Serializable{
 	private static final long serialVersionUID = 3342963890876774651L;
 
 	@Id
-	@Column(name = "idclient")
+	@Column(name = "id_client")
 	private String idClient;
 	
-	@Column(name = "idtiid")
+	@Column(name = "id_tiid")
     private String idTiid;
 	
 	@Column(name = "email")
     private String email;
 	
-	@Column(name = "creationdate")
+	@Column(name = "creation_date")
     private Date creationDate;
 	
-	@Column(name = "modificationdate")
+	@Column(name = "modification_date")
     private Date modificationDate;
 	
 	@Column(name = "name")
     private String name;
 	
-	@Column(name = "identificationnumber")
+	@Column(name = "identification_number")
     private String identificationNumber;
 	
 	@Column(name = "lastname")

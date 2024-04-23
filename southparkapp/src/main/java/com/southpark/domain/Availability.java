@@ -29,8 +29,18 @@ public class Availability implements Serializable{
 	
 	@Column(name = "available_date")
     private Date availableDate;
+
+	@Column(name = "available_capcacity")
+    private Date available_capacity;
 	
-	
+
+	public Date getAvailable_capacity() {
+		return available_capacity;
+	}
+
+	public void setAvailable_capacity(Date available_capacity) {
+		this.available_capacity = available_capacity;
+	}
 
 	public String getIdAvailability() {
 		return idAvailability;

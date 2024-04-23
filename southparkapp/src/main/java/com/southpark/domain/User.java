@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "myuser")
+@Table(name = "my_user")
 public class User implements Serializable{
 	
 	/**
@@ -18,13 +18,13 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -6219699403550670048L;
 
 	@Id
-	@Column(name = "iduser")
+	@Column(name = "id_user")
 	private String idUser;
 	
-	@Column(name = "creationdate")
+	@Column(name = "creation_date")
     private Date creationDate;
 	
-	@Column(name = "modificationdate")
+	@Column(name = "modification_date")
     private Date modificationDate;
 	
 	@Column(name = "login")
@@ -36,10 +36,10 @@ public class User implements Serializable{
 	@Column(name = "password")
     private String password;
 	
-	@Column(name = "creatoruser")
+	@Column(name = "creator_user")
     private String creatorUser;
 	
-	@Column(name = "modifieruser")
+	@Column(name = "modifier_user")
     private String modifierUser;
 
 	public String getIdUser() {

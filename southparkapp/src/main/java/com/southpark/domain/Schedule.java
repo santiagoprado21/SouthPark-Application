@@ -26,10 +26,28 @@ public class Schedule implements Serializable{
 	@Column(name = "month")
     private Date month;
 	
-	@Column(name = "duration")
-	private Integer duration;
+	@Column(name = "ini_hour")
+	private Date ini_hour;
+
+	@Column(name = "end_hour")
+	private Date end_hour;
 	
-	
+
+	public Date getIni_hour() {
+		return ini_hour;
+	}
+
+	public void setIni_hour(Date ini_hour) {
+		this.ini_hour = ini_hour;
+	}
+
+	public Date getEnd_hour() {
+		return end_hour;
+	}
+
+	public void setEnd_hour(Date end_hour) {
+		this.end_hour = end_hour;
+	}
 
 	public String getIdSchedule() {
 		return idSchedule;
@@ -53,14 +71,6 @@ public class Schedule implements Serializable{
 
 	public void setMonth(Date month) {
 		this.month = month;
-	}
-
-	public Integer getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
 	}
 
 
