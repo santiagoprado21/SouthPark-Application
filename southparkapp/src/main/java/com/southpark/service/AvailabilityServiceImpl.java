@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.southpark.domain.Availability;
 import com.southpark.repository.AvailabilityRepository;
 
+@Service
 public class AvailabilityServiceImpl implements AvailabilityService{
 
 	

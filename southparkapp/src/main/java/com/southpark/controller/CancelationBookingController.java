@@ -13,38 +13,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.CancelationBooking;
+import com.southpark.service.CancelationBookingService;
+
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/cancelationBooking")
+public class CancelationBookingController {
+	
 	@Autowired
-	private ClientService clientService;
-	
-	
-	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	private CancelationBookingService cancelationBookingService;
+
+	@PostMapping("/addBooking")
+	public CancelationBooking postDetails(@RequestBody CancelationBooking cancelationBooking) throws Exception {
+		return cancelationBookingService.save(cancelationBooking);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<CancelationBooking> findAll(){
+	    return cancelationBookingService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<CancelationBooking> findById(@PathVariable String id) {
+		return cancelationBookingService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<CancelationBooking> clientOptional = cancelationBookingService.findBy(id);
 	    
 	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    	cancelationBookingService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);

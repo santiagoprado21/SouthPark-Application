@@ -13,42 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.ActivityDetails;
+import com.southpark.service.ActivityDetailsService;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/activitydetails")
+public class ActivityDetailsController {
+	
 	@Autowired
-	private ClientService clientService;
+	private ActivityDetailsService activityDetailsService;
 	
-	
-	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	@PostMapping("/addActivityDetail")
+	public ActivityDetails postDetails(@RequestBody ActivityDetails activityDetails) throws Exception {
+		return activityDetailsService.save(activityDetails);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<ActivityDetails> findAll(){
+	    return activityDetailsService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<ActivityDetails> findById(@PathVariable String id) {
+		return activityDetailsService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<ActivityDetails> activityDetailsOptional = activityDetailsService.findBy(id);
 	    
-	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    if (activityDetailsOptional.isPresent()) {
+	    	activityDetailsService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }
 	}
-	
+
 }

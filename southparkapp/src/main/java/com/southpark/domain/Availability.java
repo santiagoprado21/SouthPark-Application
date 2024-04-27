@@ -30,15 +30,15 @@ public class Availability implements Serializable{
 	@Column(name = "available_date")
     private Date availableDate;
 
-	@Column(name = "available_capcacity")
-    private Date available_capacity;
+	@Column(name = "available_capacity")
+    private int available_capacity;
 	
 
-	public Date getAvailable_capacity() {
+	public int getAvailable_capacity() {
 		return available_capacity;
 	}
 
-	public void setAvailable_capacity(Date available_capacity) {
+	public void setAvailable_capacity(int available_capacity) {
 		this.available_capacity = available_capacity;
 	}
 

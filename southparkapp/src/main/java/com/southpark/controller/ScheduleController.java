@@ -13,38 +13,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.Schedule;
+import com.southpark.service.ScheduleService;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/schedule")
+public class ScheduleController {
 
 	@Autowired
-	private ClientService clientService;
-	
+	private ScheduleService scheduleService;
 	
 	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	public Schedule postDetails(@RequestBody Schedule schedule) throws Exception {
+		return scheduleService.save(schedule);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<Schedule> findAll(){
+	    return scheduleService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<Schedule> findById(@PathVariable String id) {
+		return scheduleService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<Schedule> scheduleOptional = scheduleService.findBy(id);
 	    
-	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    if (scheduleOptional.isPresent()) {
+	    	scheduleService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);

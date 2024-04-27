@@ -13,38 +13,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.Rol;
+import com.southpark.service.RolService;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/roles")
+public class RolController {
+	
 	@Autowired
-	private ClientService clientService;
-	
-	
-	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	private RolService rolService;
+
+	@PostMapping("/addRol")
+	public Rol postDetails(@RequestBody Rol rol) throws Exception {
+		return rolService.save(rol);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<Rol> findAll(){
+	    return rolService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<Rol> findById(@PathVariable String id) {
+		return rolService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<Rol> rolOptional = rolService.findBy(id);
 	    
-	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    if (rolOptional.isPresent()) {
+	    	rolService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -2,14 +2,17 @@ package com.southpark.service;
 
 import java.util.List;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.southpark.domain.CancelationBooking;
 
 import com.southpark.repository.CancelationBookingRepository;
 
+@Service
 public class CancelationBookingServiceImpl implements CancelationBookingService{
 
 	@Autowired

@@ -13,38 +13,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.PhysicalSpace;
+import com.southpark.service.PhysicalSpaceService;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/physicalSpace")
+public class PhysicalSpaceController {
+	
 	@Autowired
-	private ClientService clientService;
-	
-	
-	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	private PhysicalSpaceService physicalSpaceService;
+
+	@PostMapping("/addPhysicalSpace")
+	public PhysicalSpace postDetails(@RequestBody PhysicalSpace physicalSpace) throws Exception {
+		return physicalSpaceService.save(physicalSpace);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<PhysicalSpace> findAll(){
+	    return physicalSpaceService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<PhysicalSpace> findById(@PathVariable String id) {
+		return physicalSpaceService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<PhysicalSpace> physicalSpaceOptional = physicalSpaceService.findBy(id);
 	    
-	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    if (physicalSpaceOptional.isPresent()) {
+	    	physicalSpaceService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -21,10 +21,10 @@ public class Schedule implements Serializable{
     private String idSchedule;
 	
 	@Column(name = "day_of_week")
-    private Date dayOfWeek;
+    private String dayOfWeek;
 	
 	@Column(name = "month")
-    private Date month;
+    private String month;
 	
 	@Column(name = "ini_hour")
 	private Date ini_hour;
@@ -57,19 +57,19 @@ public class Schedule implements Serializable{
 		this.idSchedule = idSchedule;
 	}
 
-	public Date getDayOfWeek() {
+	public String getDayOfWeek() {
 		return dayOfWeek;
 	}
 
-	public void setDayOfWeek(Date dayOfWeek) {
+	public void setDayOfWeek(String dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
 
-	public Date getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(Date month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 

@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "avtivity_details")
+@Table(name = "activity_details")
 public class ActivityDetails implements Serializable{
 	
 	/**
@@ -30,7 +30,7 @@ public class ActivityDetails implements Serializable{
 	private double cost;
 	
 	@Column(name = "status")
-	private boolean status;
+	private String status;
 	
 	
 
@@ -66,11 +66,11 @@ public class ActivityDetails implements Serializable{
 		this.cost = cost;
 	}
 
-	public boolean isStatus() {
+	public String isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

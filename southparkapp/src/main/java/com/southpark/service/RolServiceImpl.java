@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.southpark.domain.Rol;
 
 import com.southpark.repository.RolRepository;
 
+
+@Service
 public class RolServiceImpl implements RolService{
 	
 	

@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.southpark.domain.ActivityDetails;
 import com.southpark.repository.ActivityDetailsRepository;
 
 
-
-
+@Service
 public class ActivityDetailsServiceImpl implements ActivityDetailsService{
 
 	@Autowired

@@ -13,42 +13,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.southpark.domain.Client;
-import com.southpark.service.ClientService;
+import com.southpark.domain.Activity;
+import com.southpark.service.ActivityService;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/activities")
+public class ActivityController {
+	
 	@Autowired
-	private ClientService clientService;
+	private ActivityService activityService;
 	
-	
-	@PostMapping("/addClient")
-	public Client postDetails(@RequestBody Client client) throws Exception {
-		return clientService.save(client);
+	@PostMapping("/addActivity")
+	public Activity postDetails(@RequestBody Activity activity) throws Exception {
+		return activityService.save(activity);
 	}
 	
 	@GetMapping("/all")
-	public List<Client> findAll(){
-	    return clientService.findAll();
+	public List<Activity> getAll(){
+		return activityService.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Client> findById(@PathVariable String id) {
-		return clientService.findBy(id);
+	public Optional<Activity> findById(@PathVariable String id) {
+		return activityService.findBy(id);
 	}
 	
 	@GetMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
-	    Optional<Client> clientOptional = clientService.findBy(id);
+	    Optional<Activity> activityOptional = activityService.findBy(id);
 	    
-	    if (clientOptional.isPresent()) {
-	        clientService.deleteById(id);
+	    if (activityOptional.isPresent()) {
+	    	activityService.deleteById(id);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }
 	}
 	
+
 }

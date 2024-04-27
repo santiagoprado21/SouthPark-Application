@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.southpark.domain.Booking;
 
 import com.southpark.repository.BookingRepository;
 
+@Service
 public class BookingServiceImpl implements BookingService{
 
 	@Autowired
