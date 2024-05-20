@@ -1,13 +1,10 @@
 "use client";
-import MenuIcon from "@/components/icons/menu-icon";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
-
+import Drawer from "@/components/Drawer/drawer";
 export default function TopMenu() {
   const pathName = usePathname();
-  const router = useRouter();
-
   const pageTitleDict = {
     "/": "South Park",
     "/booking": "Programacion Hoy",
@@ -16,20 +13,18 @@ export default function TopMenu() {
   const pageTitle =
     pageTitleDict[pathName as keyof typeof pageTitleDict] ?? "South Park";
 
-  function handleClickMenu() {
-    router.push("/booking");
-  }
-
   return (
-    <div className="flex bg-yellow-400 h-20 justify-between flex items-center px-6">
-      <div onClick={handleClickMenu} className="flex items-center">
-        <MenuIcon />
+    <div className="flex bg-yellow-400 h-32 justify-between flex items-center px-6">
+      <div className="flex items-center">
+        <Drawer />
       </div>
       <div>
-        <h2 className="font-semibold text-sky-800 font-serif text-4xl mr-4">
+        <h2 className="font-semibold text-sky-800 font-serif text-5xl mr-4">
           {pageTitle}
         </h2>
-        <div></div>
+        <div className="font-serif">
+        {/* <p>Vive el deporte en su maxima expresion</p> */}
+        </div>
       </div>
       <div className="">
         <Image

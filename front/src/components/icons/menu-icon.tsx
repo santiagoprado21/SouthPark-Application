@@ -4,7 +4,7 @@ interface MenuProps {
   className?: string;
 }
 
-export default function Menu({ className = "h-10 w-10 ml-4 p1" }: MenuProps) {
+export default function MenuIcon({ className = "h-10 w-10 ml-4 p1" }: MenuProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
