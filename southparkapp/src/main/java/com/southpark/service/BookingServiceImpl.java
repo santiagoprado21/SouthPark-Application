@@ -3,6 +3,7 @@ package com.southpark.service;
 import java.util.List;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,13 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public Booking save(Booking entity) throws Exception {
+		if (entity.getIdBooking() == null || entity.getIdBooking().isEmpty()) {
+			entity.setIdBooking(UUID.randomUUID().toString());
+		}
 		return bookingRepository.save(entity);
 	}
+
+
 
 	@Override
 	public Booking update(Booking entity) throws Exception {

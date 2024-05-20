@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SouthParkApplication<com.southpark>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.southpark.SouthParkApplication",
+            "projectName": "com.southpark",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

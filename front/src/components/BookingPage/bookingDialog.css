@@ -1,0 +1,28 @@
+.booking-dialog .p-field {
+    margin-bottom: 1.5rem;
+  }
+  
+  .booking-dialog .p-float-label {
+    width: 100%;
+  }
+  
+  .booking-dialog .p-float-label input,
+  .booking-dialog .p-float-label .p-inputnumber,
+  .booking-dialog .p-float-label .p-calendar {
+    width: 100%;
+  }
+  
+  .booking-dialog button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .booking-dialog button:hover {
+    background-color: #1e293b;
+  }
+  
