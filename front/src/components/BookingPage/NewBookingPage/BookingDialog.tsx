@@ -1,18 +1,21 @@
+"use client";
+
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber, InputNumberChangeEvent } from 'primereact/inputnumber';
 import { Calendar } from 'primereact/calendar';
-import { Booking } from '../../models/Booking'; 
-import { booking_service } from '../../services/booking_service';
+import { Booking } from '../../../models/Booking'; 
+import { booking_service } from '../../../services/booking_service';
 import './BookingDialog.css'; 
 
 interface BookingDialogProps {
   visible: boolean;
   onHide: () => void;
+  showToast: (severity: string, summary: string, detail: string) => void;
 }
 
-const BookingDialog = forwardRef<unknown, BookingDialogProps>(({ visible, onHide }, ref) => {
+const BookingDialog = forwardRef<unknown, BookingDialogProps>(({ visible, onHide, showToast }, ref) => {
   const [booking, setBooking] = useState<Booking>({
     idBooking: '',
     idClient: '',
@@ -56,11 +59,13 @@ const BookingDialog = forwardRef<unknown, BookingDialogProps>(({ visible, onHide
 
   const saveBooking = () => {
     bookingService.save(booking).then(() => {
-      console.log("Booking saved successfully");
+      showToast('success', 'Reserva Guardada', 'La reserva se ha guardado exitosamente.');
       onHide();
-      window.location.reload(); // Recarga la página
+      setTimeout(function() {
+        window.location.reload();
+      }, 2000);
     }).catch((error) => {
-      console.error("Error saving booking:", error);
+      showToast('error', 'Error', 'Hubo un problema al guardar la reserva.');
     });
   };
 

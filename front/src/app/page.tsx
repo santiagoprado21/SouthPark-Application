@@ -1,4 +1,3 @@
-import BookingPage from "@/components/BookingPage/";
 import TopMenu from "@/components/TopMenu/top-menu";
 import Carousel from "@/components/Home/carousel";
 

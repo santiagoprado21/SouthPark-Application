@@ -1,10 +1,11 @@
 import React from "react";
-import BookingPage from "@/components/BookingPage/booking_page";
+import MyBooking from "@/components/BookingPage/MyBooking";
+
 
 export default function ManageBookingsPage() {
   return (
     <div>
-      <BookingPage />
+      <MyBooking />
     </div>
   );
 }
