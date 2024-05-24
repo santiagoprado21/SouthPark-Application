@@ -16,10 +16,18 @@ export class booking_service {
           }
         };
         return axios.post(this.baseUrl + "addBooking", JSON.stringify(booking), config).then(res => res.data);
-      }
-      
-      delete(id: string) {
-        return axios.delete(this.baseUrl + `delete/${id}`).then(res => res.data);
-      }
+    }
 
+    delete(id: string) {
+        return axios.delete(this.baseUrl + `my_bookings/delete/${id}`).then(res => res.data);
+    }
+
+    update(id: string, booking: Booking) {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+        return axios.put(this.baseUrl + `update/${id}`, JSON.stringify(booking), config).then(res => res.data);
+    }
 }
