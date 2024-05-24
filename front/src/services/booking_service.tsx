@@ -19,10 +19,10 @@ export class booking_service {
     }
 
     delete(id: string) {
-        return axios.delete(this.baseUrl + `my_bookings/delete/${id}`).then(res => res.data);
-    }
+      return axios.delete(this.baseUrl + `my_bookings/delete/${id}`).then(res => res.data);
+  }
 
-    update(id: string, booking: Booking) {
+    update(id: string, booking: Partial<Booking>) {
         const config = {
           headers: {
             'Content-Type': 'application/json'
@@ -31,3 +31,4 @@ export class booking_service {
         return axios.put(this.baseUrl + `update/${id}`, JSON.stringify(booking), config).then(res => res.data);
     }
 }
+

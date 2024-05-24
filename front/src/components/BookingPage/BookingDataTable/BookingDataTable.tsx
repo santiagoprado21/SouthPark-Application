@@ -20,6 +20,12 @@ const BookingDataTable = () => {
   const [globalFilter, setGlobalFilter] = useState("");
   const toast = useRef<Toast>(null);
 
+  const statusOptions = [
+    { label: 'Confirmado', value: 'Confirmado' },
+    { label: 'Pendiente', value: 'Pendiente' },
+    { label: 'Cancelado', value: 'Cancelado' }
+  ];
+
   useEffect(() => {
     const bookingService = new booking_service();
     bookingService.getAll().then(data => {
@@ -98,7 +104,7 @@ const BookingDataTable = () => {
           value={globalFilter} 
           onChange={onGlobalFilterChange} 
           placeholder="Buscar reservas" 
-          style={{ width: '800px' }} 
+          style={{ width: '300px' }} 
         />
       </div>
     );
@@ -130,17 +136,28 @@ const BookingDataTable = () => {
 
       <Dialog header="Modificar Reserva" visible={isDialogVisible} onHide={() => setIsDialogVisible(false)}>
         <div className="p-fluid">
-          {/* Aquí puedes agregar los campos del formulario para modificar la reserva */}
           <div className="p-field">
-            <label htmlFor="activity">Actividad</label>
-            <input 
-              id="activity" 
+            <label htmlFor="status">Status</label>
+            <select 
+              id="status" 
+              value={selectedBooking ? selectedBooking.status : ''} 
+              onChange={(e) => setSelectedBooking(selectedBooking ? { ...selectedBooking, status: e.target.value } : null)} 
+            >
+              <option value="">Seleccionar Estado</option>
+              {statusOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
+            </select>
+          </div>
+          <div className="p-field">
+            <label htmlFor="description">Descripción</label>
+            <InputText 
+              id="description" 
               type="text" 
-              value={selectedBooking?.idActivity || ''} 
-              onChange={(e) => setSelectedBooking(selectedBooking ? { ...selectedBooking, idActivity: e.target.value } : null)} 
+              value={selectedBooking?.description || ''} 
+              onChange={(e) => setSelectedBooking(selectedBooking ? { ...selectedBooking, description: e.target.value } : null)} 
             />
           </div>
-          {/* Otros campos para modificar la reserva */}
           <Button label="Guardar" icon="pi pi-check" onClick={saveChanges} />
         </div>
       </Dialog>

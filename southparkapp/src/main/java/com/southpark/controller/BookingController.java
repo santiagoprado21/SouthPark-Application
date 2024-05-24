@@ -55,16 +55,18 @@ public class BookingController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Booking> update(@PathVariable String id, @RequestBody Booking booking) throws Exception {
+    public ResponseEntity<Booking> updateBooking(@PathVariable String id, @RequestBody Booking booking) throws Exception {
         Optional<Booking> bookingOptional = bookingService.findBy(id);
-        
         if (bookingOptional.isPresent()) {
-            booking.setIdBooking(id);
-            Booking updatedBooking = bookingService.save(booking);
-            return new ResponseEntity<>(updatedBooking, HttpStatus.OK);
+            Booking existingBooking = bookingOptional.get();
+            existingBooking.setStatus(booking.getStatus());
+            existingBooking.setDescription(booking.getDescription());
+            Booking updatedBooking = bookingService.save(existingBooking);
+            return ResponseEntity.ok(updatedBooking);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
-    }
+}
+
 }
 
