@@ -73,7 +73,7 @@ const BookingDataTable = () => {
     }
   };
 
-  const onGlobalFilterChange = (e) => {
+  const onGlobalFilterChange = (e: { target: { value: any; }; }) => {
     const value = e.target.value;
     setGlobalFilter(value);
 
@@ -114,7 +114,6 @@ const BookingDataTable = () => {
     <div>
       <Toolbar left={leftToolbarTemplate} style={{ marginBottom: '20px' }} />
       <DataTable value={filteredBookings}>
-        <Column field="idBooking" header="Booking ID" />
         <Column field="idActivity" header="Activity" />
         <Column field="bookingDate" header="Date" body={DateColumn} />
         <Column field="duration" header="Duration" />
