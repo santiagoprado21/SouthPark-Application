@@ -1,5 +1,4 @@
 import TopMenu from "@/components/TopMenu/top-menu";
-import BookingPage from "@/components/BookingPage/";
 import Carousel from "@/components/Home/carousel";
 
 export default function Page() {
