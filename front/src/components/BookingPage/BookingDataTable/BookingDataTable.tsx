@@ -19,7 +19,6 @@ const BookingDataTable = () => {
   return (
     <div>
        <DataTable value={bookings}>
-        <Column field="idBooking" header="Booking ID" />
         <Column field="idActivity" header="Activity" />
         <Column field="bookingDate" header="Date" body={DateColumn} />
         <Column field="duration" header="Duration" />
