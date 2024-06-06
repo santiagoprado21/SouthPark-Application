@@ -1,4 +1,11 @@
-.booking-dialog .p-field {
+/* components/BookingDialog/BookingDialog.css */
+
+.booking-dialog {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .booking-dialog .p-field {
     margin-bottom: 1.5rem;
   }
   
@@ -12,7 +19,7 @@
     width: 100%;
   }
   
-  .booking-dialog button {
+  .booking-dialog .button {
     width: 100%;
     padding: 1rem;
     background-color: #1e293b;
@@ -22,7 +29,25 @@
     cursor: pointer;
   }
   
-  .booking-dialog button:hover {
-    background-color: #1e293b;
+  .booking-dialog .button:hover {
+    background-color: #1a202c;
+  }
+  
+  .booking-dialog .text-gray-600 {
+    color: #718096;
+  }
+  
+  .booking-dialog .input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #d2d6dc;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .booking-dialog .input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
   }
   

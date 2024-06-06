@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 export default function Carousel() {
-  const photos = ["/images/futbol.png", "/images/mini-golf.png"];
+  const photos = ["/images/futbol.png", "/images/mini-golf.png", "/images/voley-playa.png" ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
