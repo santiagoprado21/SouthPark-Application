@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SecurityConfig",
+            "request": "launch",
+            "mainClass": "com.southpark.security.SecurityConfig",
+            "projectName": "com.southpark"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SouthParkApplication<com.southpark>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

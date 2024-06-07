@@ -8,7 +8,7 @@ export default function Page() {
         <div className="">
           <Carousel />
         </div>
-        <div className="pt-20 pr-10 font-semibold text-sky-800 font-serif text-4xl">
+        <div className="pt-20 font-semibold text-sky-800 font-serif text-4xl">
           <h1>Bienvenidos a nuestro Club</h1>
         </div>
       </div>

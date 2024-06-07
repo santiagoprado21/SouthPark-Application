@@ -31,12 +31,8 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public Booking save(Booking entity) throws Exception {
-		if (entity.getIdBooking() == null || entity.getIdBooking().isEmpty()) {
-			entity.setIdBooking(UUID.randomUUID().toString());
-		}
 		return bookingRepository.save(entity);
 	}
-
 
 
 	@Override

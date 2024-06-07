@@ -8,6 +8,8 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -21,11 +23,12 @@ public class Booking implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_booking")
-	private String idBooking;
+	private Long idBooking;
 	
 	@Column(name = "id_client")
-    private String idClient;
+    private Long idClient;
 	
 	@Column(name = "id_activity")
     private String idActivity;
@@ -48,19 +51,19 @@ public class Booking implements Serializable{
 	
 	
 
-	public String getIdBooking() {
+	public Long getIdBooking() {
 		return idBooking;
 	}
 
-	public void setIdBooking(String idBooking) {
+	public void setIdBooking(Long idBooking) {
 		this.idBooking = idBooking;
 	}
 
-	public String getIdClient() {
+	public Long getIdClient() {
 		return idClient;
 	}
 
-	public void setIdClient(String idClient) {
+	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
 	}
 
