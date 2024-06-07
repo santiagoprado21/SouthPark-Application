@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 export default function Carousel() {
-  const photos = ["/images/futbol.png", "/images/mini-golf.png"];
+  const photos = ["/images/futbol.png", "/images/mini-golf.png", "/images/voley-playa.png" ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -17,7 +17,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-20 mt-10 pl-5 pr-5">
+    <div className="relative w-full max-w-3xl mx-auto pl-5 pr-5">
       <div className="relative w-full h-64 flex">
         <div className="relative w-full h-full">
           <img

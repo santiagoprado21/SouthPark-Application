@@ -1,4 +1,4 @@
-"use client";
+// components/BookingDialog/index.tsx
 
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Dialog } from 'primereact/dialog';
@@ -70,54 +70,52 @@ const BookingDialog = forwardRef<unknown, BookingDialogProps>(({ visible, onHide
   };
 
   return (
-    <Dialog header="Nueva Reserva" visible={visible} onHide={onHide} style={{ width: '50vw' }}>
-      <div className="p-fluid booking-dialog">
-        <br></br>
-        <div className="p-field">
-          <span className="p-float-label">
-            <InputText id="idClient" value={booking.idClient} onChange={(e) => handleInputChange(e, 'idClient')} />
-            <label htmlFor="idClient">ID Cliente</label>
+    <Dialog header="Nueva Reserva" visible={visible} onHide={onHide} className="booking-dialog">
+      <div className="p-fluid p-4">
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <InputText id="idClient" value={booking.idClient} onChange={(e) => handleInputChange(e, 'idClient')} className="input" />
+            <label htmlFor="idClient" className="text-gray-600">ID Cliente</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <InputText id="idActivity" value={booking.idActivity} onChange={(e) => handleInputChange(e, 'idActivity')} className="input" />
+            <label htmlFor="idActivity" className="text-gray-600">ID Actividad</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <Calendar id="bookingDate" value={booking.bookingDate} onChange={(e) => handleDateChange(e.value as Date, 'bookingDate')} dateFormat="yy-mm-dd" className="input" />
+            <label htmlFor="bookingDate" className="text-gray-600">Fecha de Reserva</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <InputNumber id="duration" value={booking.duration} onChange={(e) => handleNumberChange(e, 'duration')} className="input" />
+            <label htmlFor="duration" className="text-gray-600">Duración (horas)</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <Calendar id="hour" value={booking.hour} onChange={(e) => handleDateChange(e.value as Date, 'hour')} timeOnly hourFormat="24" showTime className="input" />
+            <label htmlFor="hour" className="text-gray-600">Hora</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <InputText id="status" value={booking.status} onChange={(e) => handleInputChange(e, 'status')} className="input" />
+            <label htmlFor="status" className="text-gray-600">Estado</label>
+          </span>
+        </div>
+        <div className="p-field mb-4">
+          <span className="p-float-label w-full">
+            <InputText id="description" value={booking.description} onChange={(e) => handleInputChange(e, 'description')} className="input" />
+            <label htmlFor="description" className="text-gray-600">Descripción</label>
           </span>
         </div>
         <div className="p-field">
-          <span className="p-float-label">
-            <InputText id="idActivity" value={booking.idActivity} onChange={(e) => handleInputChange(e, 'idActivity')} />
-            <label htmlFor="idActivity">ID Actividad</label>
-          </span>
-        </div>
-        <div className="p-field">
-          <span className="p-float-label">
-            <Calendar id="bookingDate" value={booking.bookingDate} onChange={(e) => handleDateChange(e.value as Date, 'bookingDate')} dateFormat="yy-mm-dd" />
-            <label htmlFor="bookingDate">Fecha de Reserva</label>
-          </span>
-        </div>
-        <br></br>
-        <div className="p-field">
-          <span className="p-float-label">
-            <InputNumber id="duration" value={booking.duration} onChange={(e) => handleNumberChange(e, 'duration')} />
-            <label htmlFor="duration">Duración</label>
-          </span>
-        </div>
-        <div className="p-field">
-          <span className="p-float-label">
-            <Calendar id="hour" value={booking.hour} onChange={(e) => handleDateChange(e.value as Date, 'hour')} timeOnly hourFormat="24" showTime />
-            <label htmlFor="hour">Hora</label>
-          </span>
-        </div>
-        <div className="p-field">
-          <span className="p-float-label">
-            <InputText id="status" value={booking.status} onChange={(e) => handleInputChange(e, 'status')} />
-            <label htmlFor="status">Estado</label>
-          </span>
-        </div>
-        <div className="p-field">
-          <span className="p-float-label">
-            <InputText id="description" value={booking.description} onChange={(e) => handleInputChange(e, 'description')} />
-            <label htmlFor="description">Descripción</label>
-          </span>
-        </div>
-        <div className="p-field">
-          <button onClick={saveBooking}>Guardar</button>
+          <button onClick={saveBooking} className="button">Guardar</button>
         </div>
       </div>
     </Dialog>
