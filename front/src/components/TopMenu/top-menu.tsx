@@ -13,6 +13,7 @@ export default function TopMenu() {
     "/futbol" : "Futbol",
     "/futbol-sintetico" : "Futbol Sintetico",
     "/tenis" : "Tenis",
+    "/contact" : "Contacto"
   };
 
   const pageTitle =

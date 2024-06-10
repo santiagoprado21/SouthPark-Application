@@ -22,6 +22,11 @@ const Drawer = () => {
     router.push("/booking");
   }
 
+  function handleClickContact() {
+    router.push("/contact");
+  }
+
+
   return (
     <div>
       <div onClick={toggleDrawer} className="cursor-pointer">
@@ -56,7 +61,11 @@ const Drawer = () => {
                 <SportsIcon />
                 <li className="text-center">Deportes</li>
               </div>
-              <div className="flex items-center">
+              <div>
+              </div>
+              <div 
+              onClick={handleClickContact}
+              className="flex items-center">
                 <ContactIcon />
                 <li className="text-center">Contacto</li>
               </div>
