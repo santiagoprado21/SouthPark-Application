@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.southpark.domain.Booking;
 import com.southpark.service.BookingService;
 
-import jakarta.annotation.security.PermitAll;
-
 @RestController
 @RequestMapping("/booking")
 @CrossOrigin("*")
@@ -31,25 +28,21 @@ public class BookingController {
     private BookingService bookingService;
     
     @PostMapping("/addBooking")
-    @PermitAll
     public Booking postDetails(@RequestBody Booking booking) throws Exception {
         return bookingService.save(booking);
     }
     
     @GetMapping("/all")
-    @PermitAll
     public List<Booking> findAll(){
         return bookingService.findAll();
     }
     
     @GetMapping("/find/{id}")
-    @PermitAll
     public Optional<Booking> findById(@PathVariable String id) {
         return bookingService.findBy(id);
     }
     
     @DeleteMapping("my_bookings/delete/{id}")
-    @PermitAll
     public ResponseEntity<?> delete(@PathVariable String id) throws Exception {
         Optional<Booking> bookingOptional = bookingService.findBy(id);
         
@@ -62,7 +55,6 @@ public class BookingController {
     }
 
     @PutMapping("/update/{id}")
-    @PermitAll
     public ResponseEntity<Booking> updateBooking(@PathVariable String id, @RequestBody Booking booking) throws Exception {
         Optional<Booking> bookingOptional = bookingService.findBy(id);
         if (bookingOptional.isPresent()) {

@@ -1,6 +1,9 @@
 "use client";
 import Carousel from "@/components/Home/carousel";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
+import userService from '@/services/user_service';
+import { User } from '@/models/User';
 
 const sports = [
   {
@@ -31,6 +34,27 @@ const sports = [
 ];
 
 export default function Page() {
+
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    const { username } = userData;
+
+    const fetchUserData = async () => {
+      try {
+        const userData = await userService.getUserByUsername(username);
+        setUser(userData);
+        console.log(userData);
+      } catch (error) {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+
   const router = useRouter();
 
   return (
@@ -39,10 +63,6 @@ export default function Page() {
         <div className="w-1/2 flex justify-center items-center pl-10">
           <Carousel />
         </div>
-<<<<<<< HEAD
-        <div className="pt-20 font-semibold text-sky-800 font-serif text-4xl">
-          <h1>Bienvenidos a nuestro Club</h1>
-=======
         <div className="w-1/2 flex flex-col items-center justify-center">
           <h1 className="font-semibold text-sky-800 font-serif text-4xl text-center pr-10">
             Bienvenidos a nuestro Club
@@ -50,7 +70,6 @@ export default function Page() {
           <p className="text-center font-light font-serif text-2xl pt-5">
             5 deportes en un mismo lugar
           </p>
->>>>>>> 6f4d69d9c124ed343a59f7e2783e4a9d156ddf09
         </div>
       </section>
 

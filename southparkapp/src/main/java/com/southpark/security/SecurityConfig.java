@@ -36,11 +36,16 @@ public class SecurityConfig {
 
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
+        
+        
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
         return httpSecurity
             .csrf(config -> config.disable())
             .authorizeHttpRequests(auth -> {
-                auth.requestMatchers("/hello").permitAll();
+                auth.requestMatchers("/login").permitAll();
+                auth.requestMatchers("/admin").hasRole("ADMIN");
+                auth.requestMatchers("/users/{username}").permitAll();
                 auth.requestMatchers("/booking/all").permitAll();
                 auth.requestMatchers("/booking/addBooking").permitAll();
                 auth.anyRequest().authenticated();
