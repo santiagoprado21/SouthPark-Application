@@ -1,44 +1,31 @@
 package com.southpark.domain;
 
-import java.io.Serializable;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "rol")
-public class Rol implements Serializable{
+public class Rol{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5743613000809949750L;
 
-	@Column(name = "name")
-	private String name;
-	
 	@Id
-	@Column(name = "code")
-	private String code;
-	
-	
-	
-	public String getName() {
-		return name;
-	}
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	@Enumerated(EnumType.STRING)
+	private ERole name;
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-	
 }

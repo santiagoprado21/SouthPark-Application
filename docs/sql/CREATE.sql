@@ -1,21 +1,17 @@
-CREATE TABLE Rol (
-  codigo INT PRIMARY KEY,
-  nombre VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE MyUser (
-  idUser VARCHAR(255) PRIMARY KEY,
+  idUser BIGINT PRIMARY KEY,
   creationDate DATE NOT NULL,
   modificationDate DATE,
   login VARCHAR(255) NOT NULL,
   name VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  creatorUser VARCHAR(255) REFERENCES MyUser(idUser),
-  modifierUser VARCHAR(255) REFERENCES MyUser(idUser)
+  creatorUser BIGINT REFERENCES MyUser(idUser),
+  modifierUser BIGINT REFERENCES MyUser(idUser)
 );
 
 CREATE TABLE Client (
-  idClient VARCHAR(255) PRIMARY KEY,
+  idClient BIGINT PRIMARY KEY,
   idTiid VARCHAR(255),
   email VARCHAR(255) NOT NULL,
   creationDate DATE NOT NULL,
@@ -43,7 +39,7 @@ CREATE TABLE ActivityDetails (
 
 CREATE TABLE Booking (
   idBooking VARCHAR(255) PRIMARY KEY,
-  idClient VARCHAR(255) REFERENCES Client(idClient),
+  idClient BIGINT REFERENCES Client(idClient),
   idActivity VARCHAR(255) REFERENCES Activity(code),
   bookingDate DATE NOT NULL,
   duration INT NOT NULL,

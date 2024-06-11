@@ -1,0 +1,13 @@
+.description-column {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10px; /* Puedes ajustar este valor según tus necesidades */
+  }
+  
+  .p-tooltip {
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 20px; /* Ajusta este valor según sea necesario */
+  }
+  

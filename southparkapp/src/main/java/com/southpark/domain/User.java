@@ -1,114 +1,54 @@
 package com.southpark.domain;
 
-import java.io.Serializable;
-import java.util.Date;
+
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "my_user")
-public class User implements Serializable{
+public class User {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6219699403550670048L;
-
 	@Id
-	@Column(name = "id_user")
-	private String idUser;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idUser;
+
+	@Email
+	@NotBlank
+	@Column(name = "email")
+    private String email;
 	
-	@Column(name = "creation_date")
-    private Date creationDate;
+	@NotBlank
+	@Column(name = "user_name")
+    private String username;
 	
-	@Column(name = "modification_date")
-    private Date modificationDate;
-	
-	@Column(name = "login")
-    private String login;
-	
-	@Column(name = "name")
-    private String name;
-	
+	@NotBlank
 	@Column(name = "password")
     private String password;
-	
-	@Column(name = "creator_user")
-    private String creatorUser;
-	
-	@Column(name = "modifier_user")
-    private String modifierUser;
 
-	public String getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(String idUser) {
-		this.idUser = idUser;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public Date getModificationDate() {
-		return modificationDate;
-	}
-
-	public void setModificationDate(Date modificationDate) {
-		this.modificationDate = modificationDate;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCreatorUser() {
-		return creatorUser;
-	}
-
-	public void setCreatorUser(String creatorUser) {
-		this.creatorUser = creatorUser;
-	}
-
-	public String getModifierUser() {
-		return modifierUser;
-	}
-
-	public void setModifierUser(String modifierUser) {
-		this.modifierUser = modifierUser;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	@ManyToMany(fetch = FetchType.EAGER, targetEntity = Rol.class, cascade = CascadeType.PERSIST)
+	@JoinTable(name="user_roles", joinColumns = @JoinColumn(name ="user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
+	private Set<Rol> roles;
 
 }
 

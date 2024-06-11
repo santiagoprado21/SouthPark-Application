@@ -104,7 +104,7 @@ const BookingDataTable = () => {
           value={globalFilter} 
           onChange={onGlobalFilterChange} 
           placeholder="Buscar reservas" 
-          style={{ width: '300px' }} 
+          style={{ width: '800px' }} 
         />
       </div>
     );
@@ -114,7 +114,6 @@ const BookingDataTable = () => {
     <div>
       <Toolbar left={leftToolbarTemplate} style={{ marginBottom: '20px' }} />
       <DataTable value={filteredBookings}>
-        <Column field="idBooking" header="Booking ID" />
         <Column field="idActivity" header="Activity" />
         <Column field="bookingDate" header="Date" body={DateColumn} />
         <Column field="duration" header="Duration" />
