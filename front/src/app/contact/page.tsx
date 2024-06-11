@@ -1,6 +1,27 @@
-import React from "react";
+"use client"
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactPage() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs.sendForm('service_nbmrpjp', 'template_x26tykw', form.current, 'BRm7Qj53t-MVQuWCb')
+        .then((result) => {
+            console.log(result.text);
+            alert("Mensaje enviado correctamente");
+        }, (error) => {
+            console.log(error.text);
+            alert("Hubo un error al enviar el mensaje");
+        });
+    } else {
+      console.error("Formulario no encontrado.");
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-serif">
       <header className="text-center my-8">
@@ -10,12 +31,9 @@ export default function ContactPage() {
       </header>
       <main className="flex flex-grow items-start">
         <section className="w-1/2 p-10">
-          <form className="space-y-6">
+          <form ref={form} onSubmit={sendEmail} className="space-y-6">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-lg font-medium text-gray-700"
-              >
+              <label htmlFor="name" className="block text-lg font-medium text-gray-700">
                 Nombre
               </label>
               <input
@@ -27,10 +45,7 @@ export default function ContactPage() {
               />
             </div>
             <div>
-              <label
-                htmlFor="email"
-                className="block text-lg font-medium text-gray-700"
-              >
+              <label htmlFor="email" className="block text-lg font-medium text-gray-700">
                 Email
               </label>
               <input
@@ -42,10 +57,7 @@ export default function ContactPage() {
               />
             </div>
             <div>
-              <label
-                htmlFor="message"
-                className="block text-lg font-medium text-gray-700"
-              >
+              <label htmlFor="message" className="block text-lg font-medium text-gray-700">
                 Mensaje
               </label>
               <textarea
@@ -68,7 +80,7 @@ export default function ContactPage() {
         <section className="w-1/2 p-10 flex justify-center items-center">
           <div className="w-full h-full bg-gray-200 rounded-lg overflow-hidden">
             <img
-              src="/images/contact_image.png"
+              src="/images/contact_image.png" // Asegúrate de reemplazar con la ruta correcta de tu imagen
               alt="Contáctanos"
               className="w-full h-full object-cover rounded-lg"
             />
