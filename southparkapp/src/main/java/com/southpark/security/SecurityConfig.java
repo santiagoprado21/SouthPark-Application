@@ -36,11 +36,25 @@ public class SecurityConfig {
 
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
+<<<<<<< HEAD
+=======
+        
+        
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 
         return httpSecurity
             .csrf(config -> config.disable())
             .authorizeHttpRequests(auth -> {
+<<<<<<< HEAD
                 auth.requestMatchers("/hello").permitAll();
+=======
+                auth.requestMatchers("/login").permitAll();
+                auth.requestMatchers("/admin").hasRole("ADMIN");
+                auth.requestMatchers("/users/{username}").permitAll();
+                auth.requestMatchers("/booking/all").permitAll();
+                auth.requestMatchers("/booking/addBooking").permitAll();
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
                 auth.anyRequest().authenticated();
             })
             .sessionManagement(session -> {

@@ -7,7 +7,13 @@ export default function TopMenu() {
   const pathName = usePathname();
   const pageTitleDict = {
     "/": "South Park",
-    "/booking": "Programacion Hoy",
+    "/booking": "Realizar Reservas",
+    "/voley" : "Voley Playa",
+    "/mini-golf" : "Mini Golf",
+    "/futbol" : "Futbol",
+    "/futbol-sintetico" : "Futbol Sintetico",
+    "/tenis" : "Tenis",
+    "/contact" : "Contacto"
   };
 
   const pageTitle =

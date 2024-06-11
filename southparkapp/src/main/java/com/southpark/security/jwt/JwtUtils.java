@@ -1,12 +1,25 @@
 package com.southpark.security.jwt;
 
 import java.security.Key;
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.function.Function;
+=======
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+<<<<<<< HEAD
+=======
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Claims;
@@ -27,15 +40,31 @@ public class JwtUtils {
     private String timeExpiration;
 
     // Generar token de acceso
+<<<<<<< HEAD
     public String generateAccessToken(String username) {
+=======
+    public String generateAccessToken(String username, String role) {
+
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority(role));
+      
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
         return Jwts.builder()
             .setSubject(username)
             .setIssuedAt(new Date(System.currentTimeMillis()))
             .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(timeExpiration)))
+<<<<<<< HEAD
             .signWith(getSignatureKey(), SignatureAlgorithm.HS256)
             .compact();
     }
 
+=======
+            .claim("authorities", grantedAuthorities) // Set authorities claim
+            .signWith(getSignatureKey(), SignatureAlgorithm.HS256)
+            .compact();
+    }
+    
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
     // Validar token de acceso
     public boolean isTokenValid(String token) {
         try {

@@ -9,6 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+<<<<<<< HEAD
+=======
+import org.springframework.security.core.GrantedAuthority;
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -56,10 +60,21 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             Authentication authResult) throws IOException, ServletException {
     
         org.springframework.security.core.userdetails.User userDetails = (org.springframework.security.core.userdetails.User) authResult.getPrincipal();
+<<<<<<< HEAD
         String token = jwtUtils.generateAccessToken(userDetails.getUsername());
     
         response.addHeader("Authorization", token);
     
+=======
+        String username = userDetails.getUsername();
+        String role = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .findFirst()
+                .orElse(null);
+    
+        String token = jwtUtils.generateAccessToken(username, role);
+        
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
         httpResponse.put("message", "Autenticación Correcta");

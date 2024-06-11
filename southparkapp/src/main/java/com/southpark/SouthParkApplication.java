@@ -8,6 +8,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 
 import com.southpark.domain.ERole;
 import com.southpark.domain.Rol;
@@ -21,6 +29,20 @@ public class SouthParkApplication {
 		SpringApplication.run(SouthParkApplication.class, args);
 	}
 
+<<<<<<< HEAD
+=======
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:3000").allowedMethods("*").allowedHeaders("*");
+			}
+		};
+	}
+
+
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 	// @Autowired
 	// UserRepository userRepository;
 

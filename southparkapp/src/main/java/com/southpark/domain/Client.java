@@ -20,10 +20,17 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
     @Column(name = "idClient", nullable = false)
     private Long idClient;
 
     @Column(name = "idTiid")
+=======
+    @Column(name = "id_client", nullable = false)
+    private Long idClient;
+
+    @Column(name = "id_tiid")
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
     private String idTiid;
 
     @Email
@@ -32,20 +39,34 @@ public class Client implements Serializable {
     private String email;
 
     @NotNull
+<<<<<<< HEAD
     @Column(name = "creationDate", nullable = false)
     private Date creationDate;
 
     @Column(name = "modificationDate")
+=======
+    @Column(name = "creation_date", nullable = false)
+    private Date creationDate;
+
+    @Column(name = "modification_date")
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
     private Date modificationDate;
 
     @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
 
+<<<<<<< HEAD
     @Column(name = "identificationNumber")
     private String identificationNumber;
 
     @Column(name = "lastName")
+=======
+    @Column(name = "identification_number")
+    private String identificationNumber;
+
+    @Column(name = "last_name")
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
     private String lastName;
 
     @Column(name = "gender")
@@ -54,7 +75,10 @@ public class Client implements Serializable {
     @Column(name = "cellphone")
     private String cellphone;
 
+<<<<<<< HEAD
     // Getters y Setters
+=======
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
     public Long getIdClient() {
         return idClient;
     }
@@ -130,8 +154,16 @@ public class Client implements Serializable {
     public String getCellphone() {
         return cellphone;
     }
+<<<<<<< HEAD
 
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
     }
+=======
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+>>>>>>> 296cf62c13413836fa4444857f0b45019e106b18
 }
