@@ -2,10 +2,10 @@ import React from "react";
 
 export default function VoleyPage() {
   const images = [
-    { src: "/images/voley1.png", title: "Escuelas" },
-    { src: "/images/voley2.png", title: "Canchas" },
-    { src: "/images/voley3.png", title: "Torneo" },
-    { src: "/images/voley4.png", title: "Fotos Destacadas" },
+    { src: "/images/escuelaVoley.png", title: "Escuelas" },
+    { src: "/images/canchasVoley.png", title: "Canchas" },
+    { src: "/images/torneoVoley.png", title: "Torneo" },
+    { src: "/images/fotoDestacadaVoley.png", title: "Fotos Destacadas" },
   ];
 
   return (

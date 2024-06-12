@@ -2,10 +2,10 @@ import React from "react";
 
 export default function FutbolPage() {
   const images = [
-    { src: "/images/voley1.png", title: "Escuelas" },
-    { src: "/images/voley2.png", title: "Canchas" },
-    { src: "/images/voley3.png", title: "Torneo" },
-    { src: "/images/voley4.png", title: "Fotos Destacadas" },
+    { src: "/images/escuelaFutbol.png", title: "Escuelas" },
+    { src: "/images/canchaFutbol.png", title: "Canchas" },
+    { src: "/images/torneoFutbol.png", title: "Torneo" },
+    { src: "/images/fotoDestacadaFutbol.png", title: "Fotos Destacadas" },
   ];
 
   return (

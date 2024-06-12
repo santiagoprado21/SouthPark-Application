@@ -2,10 +2,10 @@ import React from "react";
 
 export default function TenisPage() {
   const images = [
-    { src: "/images/voley1.png", title: "Escuelas" },
-    { src: "/images/voley2.png", title: "Canchas" },
-    { src: "/images/voley3.png", title: "Torneo" },
-    { src: "/images/voley4.png", title: "Fotos Destacadas" },
+    { src: "/images/escuelaTenis.png", title: "Escuelas" },
+    { src: "/images/tenis.png", title: "Canchas" },
+    { src: "/images/torneoTenis.png", title: "Torneo" },
+    { src: "/images/fotoDestacadaTenis.png", title: "Fotos Destacadas" },
   ];
 
   return (

@@ -2,10 +2,10 @@ import React from "react";
 
 export default function MiniGolfPage() {
   const images = [
-    { src: "/images/voley1.png", title: "Escuelas" },
-    { src: "/images/voley2.png", title: "Canchas" },
-    { src: "/images/voley3.png", title: "Torneo" },
-    { src: "/images/voley4.png", title: "Fotos Destacadas" },
+    { src: "/images/escuelaMini.png", title: "Escuelas" },
+    { src: "/images/camposMini.png", title: "Circuitos" },
+    { src: "/images/torneoMini.png", title: "Torneo" },
+    { src: "/images/fotoDestacadaMini.png", title: "Fotos Destacadas" },
   ];
 
   return (

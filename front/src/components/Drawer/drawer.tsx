@@ -22,6 +22,10 @@ const Drawer = () => {
     router.push("/booking");
   }
 
+  function handleClickSports() {
+    router.push("/sports");
+  }
+
   function handleClickContact() {
     router.push("/contact");
   }
@@ -57,7 +61,9 @@ const Drawer = () => {
                 <BookingIcon />
                 <li className="text-center">Reservas</li>
               </div>
-              <div className="mb-4 flex items-center">
+              <div 
+              onClick={handleClickSports}
+              className="mb-4 flex items-center">
                 <SportsIcon />
                 <li className="text-center">Deportes</li>
               </div>
